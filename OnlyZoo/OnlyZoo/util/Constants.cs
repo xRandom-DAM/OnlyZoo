@@ -8,9 +8,14 @@ namespace OnlyZoo.util
 {
     internal class Constants
     {
-        public const string DBString = "server=localhost:6969:3306;" +
+        public const string DBString = "server=127.0.0.1;" +
+                                        "port=6969;" +
                                         "uid=root;" +
                                         "pwd=OnlyZoo;" +
                                         "database=OnlyZoo";
+
+        public const string TestLogFile = "development/Tests.log";
+        public const string ErrorLogFile = "Errors.log";
+
     }
 }

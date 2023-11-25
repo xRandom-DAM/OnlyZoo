@@ -12,21 +12,20 @@ namespace OnlyZoo.drivers
 {
     public class DBConnection
     {
-        private static MySqlConnection Conn;
+        private static MySqlConnection? Conn = null;
         public static MySqlConnection GetConnection()
         {
             if (Conn == null) Conn = new MySqlConnection(Constants.DBString);
-            else
+            if (Conn.State == ConnectionState.Closed) Conn.Open();
+            else if (Conn.State == ConnectionState.Broken)
             {
-                if (Conn.State == ConnectionState.Closed) Conn.Open();
-                else if (Conn.State == ConnectionState.Broken)
-                {
-                    Conn.Close();
-                    Conn.Open();
-                }
+                Conn.Close();
+                Conn.Open();
             }
             return Conn;
         }
-        public static void Close() { Conn.Close();}
+        public static void Close() {
+            if (Conn != null) if (Conn.State != ConnectionState.Closed) Conn.Close();
+        }
     }
 }
