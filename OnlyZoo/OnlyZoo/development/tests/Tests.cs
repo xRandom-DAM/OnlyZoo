@@ -11,6 +11,7 @@ namespace OnlyZoo.development.tests
     {
         public static void Init()
         {
+            FileManager.CreateFileIfNotExists(Constants.TestLogFile);
             Test("Prueba de create", TestConnection.Create(), false);
             Test("Prueba de insert", TestConnection.Insert(), true);
             Test("Prueba de select", TestConnection.Select(), true);

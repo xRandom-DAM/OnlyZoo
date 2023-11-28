@@ -15,14 +15,18 @@ namespace OnlyZoo.development.tests
     {
         public static bool Create()
         {
-            string query = "CREATE TABLE IF NOT EXISTS TESTS (Number INT)";
+            string dropUserQuery = "DROP TABLE IF EXISTS USER";
+            string createUserQuery = "CREATE TABLE USER (EMAIL VARCHAR(30) PRIMARY KEY, USERNAME VARCHAR(15) NOT NULL, PASSWORD_HASH VARCHAR(64) NOT NULL)";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    using (MySqlCommand cmd = new MySqlCommand(dropUserQuery, connection))
                     {
-                        // Ejecutar la consulta
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (MySqlCommand cmd = new MySqlCommand(createUserQuery, connection))
+                    {
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -45,17 +49,19 @@ namespace OnlyZoo.development.tests
 
         public static bool Insert()
         {
-            int number = 69;
-            string query = "INSERT INTO TESTS VALUES (@number)";
+            string query = "INSERT INTO USER VALUES (@email, @username, @password)";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@number", number);
+                        cmd.Parameters.AddWithValue("@email", "prueba@prueba.com");
+                        cmd.Parameters.AddWithValue("@username", "prueba");
+                        cmd.Parameters.AddWithValue("@password", PasswordEncrypter.Hash("prueba"));
 
-                        // Ejecutar la consulta
+
+
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -78,7 +84,7 @@ namespace OnlyZoo.development.tests
 
         public static bool Select()
         {
-            string query = "SELECT * FROM TESTS";
+            string query = "SELECT * FROM USER";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
@@ -90,7 +96,7 @@ namespace OnlyZoo.development.tests
                             while (reader.Read())
                             {
                                 // Agregar cada número a la lista
-                                Console.WriteLine(reader.GetInt32("Number"));
+                                Console.WriteLine(reader.GetString("Email"));
                             }
                         }
                     }
