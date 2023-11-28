@@ -10,7 +10,7 @@ namespace OnlyZoo.DAO
     {
         public List<T> getAll(Object obj);
         public T selectObject(String uuid);
-        public T insertObject(T obj);
+        public bool insertObject(T obj);
         public T updateObject(T obj);
     }
 }
