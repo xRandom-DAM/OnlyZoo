@@ -124,7 +124,7 @@
             menuStripFilterBy.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, breedToolStripMenuItem, speciesToolStripMenuItem, tagToolStripMenuItem });
             menuStripFilterBy.Location = new Point(0, 0);
             menuStripFilterBy.Name = "menuStripFilterBy";
-            menuStripFilterBy.Size = new Size(164, 30);
+            menuStripFilterBy.Size = new Size(284, 30);
             menuStripFilterBy.TabIndex = 3;
             menuStripFilterBy.Text = "Breed";
             menuStripFilterBy.ItemClicked += menuStripFilterBy_ItemClicked;
