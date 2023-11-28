@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using OnlyZoo.drivers;
 using OnlyZoo.util;
+using OnlyZoo.models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,9 +26,9 @@ namespace OnlyZoo.DAO
                     {
                         while (reader.Read())
                         {
-                            Pet pet = new Pet
+                            Pet pet = new Pet((Guid)reader["Id"], )
                             {
-                                Id = Convert.ToInt32(reader["Id"]),
+                                Id = ,
                                 Name = reader["Name"].ToString(),
                                 Description = reader["Description"].ToString(),
                                 Breed = Convert.ToInt32(reader["Breed"])
