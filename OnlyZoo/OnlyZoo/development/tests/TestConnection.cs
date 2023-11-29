@@ -17,6 +17,9 @@ namespace OnlyZoo.development.tests
         {
             string dropUserQuery = "DROP TABLE IF EXISTS USER";
             string createUserQuery = "CREATE TABLE USER (EMAIL VARCHAR(30) PRIMARY KEY, USERNAME VARCHAR(15) NOT NULL, PASSWORD_HASH VARCHAR(64) NOT NULL)";
+            string createTagQuery= "CREATE TABLE IF NOT EXISTS Tag ( id INT PRIMARY KEY  NOT NULL, name VARCHAR(50) NOT NULL,tipo VARCHAR(50))";
+            string createPetKind = "CREATE TABLE IF NOT EXISTS Breed  ( id INT PRIMARY KEY  NOT NULL, kind VARCHAR (50) NOT NULL, species VARCHAR (50) NOT NULL )";
+            string createPetQuery = "CREATE TABLE IF NOT EXISTS Pet ( id INT PRIMARY KEY , name VARCHAR(50), birth_date  DATE, breed INTEGER REFERENCES Breed (id), description VARCHAR (250))";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
@@ -26,6 +29,18 @@ namespace OnlyZoo.development.tests
                         cmd.ExecuteNonQuery();
                     }
                     using (MySqlCommand cmd = new MySqlCommand(createUserQuery, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (MySqlCommand cmd = new MySqlCommand(createTagQuery, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (MySqlCommand cmd = new MySqlCommand(createPetKind, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (MySqlCommand cmd = new MySqlCommand(createPetQuery, connection))
                     {
                         cmd.ExecuteNonQuery();
                     }
