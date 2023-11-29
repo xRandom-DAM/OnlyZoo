@@ -15,17 +15,23 @@ namespace OnlyZoo.development.tests
     {
         public static bool Create()
         {
-            string query = "CREATE TABLE IF NOT EXISTS TESTS (Number INT)";
+           
+            ArrayList arrayList = new ArrayList();
+
+            arrayList.Add("DROP TABLE IF EXISTS USER");
+            arrayList.Add("CREATE TABLE USER (EMAIL VARCHAR(30) PRIMARY KEY, USERNAME VARCHAR(15) NOT NULL, PASSWORD_HASH VARCHAR(64) NOT NULL)");
+            arrayList.Add("CREATE TABLE IF NOT EXISTS Tag ( id INT PRIMARY KEY  NOT NULL, name VARCHAR(50) NOT NULL,tipo VARCHAR(50))");
+            arrayList.Add("CREATE TABLE IF NOT EXISTS Breed  ( id INT PRIMARY KEY  NOT NULL, kind VARCHAR (50) NOT NULL, species VARCHAR (50) NOT NULL )");
+            arrayList.Add("CREATE TABLE IF NOT EXISTS Pet ( id INT PRIMARY KEY , name VARCHAR(50), birth_date  DATE, breed INTEGER REFERENCES Breed (id), description VARCHAR (250))");
+
             try
             {
-                using (MySqlConnection connection = DBConnection.GetConnection())
+
+                foreach (string item in arrayList)
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                    {
-                        // Ejecutar la consulta
-                        cmd.ExecuteNonQuery();
-                    }
+                    Sqlconnection(item);
                 }
+
                 DBConnection.Close();
                 return true;
             }
@@ -43,19 +49,38 @@ namespace OnlyZoo.development.tests
             }
         }
 
+        public static void Sqlcommand(String sentence, MySqlConnection connection)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(sentence, connection))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void Sqlconnection(String sentence)
+        {
+            using (MySqlConnection connection = DBConnection.GetConnection())
+            {
+                Sqlcommand(sentence,connection);
+            }
+        }
+
+
+
+
+
         public static bool Insert()
         {
-            int number = 69;
-            string query = "INSERT INTO TESTS VALUES (@number)";
+            string query = "INSERT INTO USER VALUES (@email, @username, @password)";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@number", number);
-
-                        // Ejecutar la consulta
+                        cmd.Parameters.AddWithValue("@email", "prueba@prueba.com");
+                        cmd.Parameters.AddWithValue("@username", "prueba");
+                        cmd.Parameters.AddWithValue("@password", PasswordEncrypter.Hash("prueba"));
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -78,7 +103,7 @@ namespace OnlyZoo.development.tests
 
         public static bool Select()
         {
-            string query = "SELECT * FROM TESTS";
+            string query = "SELECT * FROM USER";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
@@ -90,7 +115,7 @@ namespace OnlyZoo.development.tests
                             while (reader.Read())
                             {
                                 // Agregar cada número a la lista
-                                Console.WriteLine(reader.GetInt32("Number"));
+                                Console.WriteLine(reader.GetString("Email"));
                             }
                         }
                     }
