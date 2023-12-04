@@ -28,138 +28,141 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            button2 = new Button();
-            button1 = new Button();
-            tabControl1 = new TabControl();
-            tab_Mascotas = new TabPage();
-            flowLayoutPanel_Mascotas = new FlowLayoutPanel();
-            tab_Productos = new TabPage();
-            tabPage3 = new TabPage();
-            tab_Suscripciones = new TabPage();
-            panel1 = new Panel();
-            tabControl1.SuspendLayout();
-            tab_Mascotas.SuspendLayout();
-            panel1.SuspendLayout();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab_Mascotas = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel_Mascotas = new System.Windows.Forms.FlowLayoutPanel();
+            this.tab_Productos = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tab_Suscripciones = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl1.SuspendLayout();
+            this.tab_Mascotas.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(45, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(111, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Titulo: OnlyZoo";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(45, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Titulo: OnlyZoo";
             // 
             // button2
             // 
-            button2.Location = new Point(762, 13);
-            button2.Name = "button2";
-            button2.Size = new Size(78, 31);
-            button2.TabIndex = 1;
-            button2.Text = "Sing Up";
-            button2.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(762, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(78, 31);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Sing Up";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(675, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(81, 31);
-            button1.TabIndex = 0;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(675, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 31);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tab_Mascotas);
-            tabControl1.Controls.Add(tab_Productos);
-            tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tab_Suscripciones);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 71);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(859, 449);
-            tabControl1.TabIndex = 0;
+            this.tabControl1.Controls.Add(this.tab_Mascotas);
+            this.tabControl1.Controls.Add(this.tab_Productos);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tab_Suscripciones);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 71);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(859, 449);
+            this.tabControl1.TabIndex = 0;
             // 
             // tab_Mascotas
             // 
-            tab_Mascotas.Controls.Add(flowLayoutPanel_Mascotas);
-            tab_Mascotas.Location = new Point(4, 24);
-            tab_Mascotas.Name = "tab_Mascotas";
-            tab_Mascotas.Padding = new Padding(3);
-            tab_Mascotas.Size = new Size(851, 421);
-            tab_Mascotas.TabIndex = 0;
-            tab_Mascotas.Text = "Mascotas";
-            tab_Mascotas.UseVisualStyleBackColor = true;
+            this.tab_Mascotas.Controls.Add(this.flowLayoutPanel_Mascotas);
+            this.tab_Mascotas.Location = new System.Drawing.Point(4, 24);
+            this.tab_Mascotas.Name = "tab_Mascotas";
+            this.tab_Mascotas.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Mascotas.Size = new System.Drawing.Size(851, 421);
+            this.tab_Mascotas.TabIndex = 0;
+            this.tab_Mascotas.Text = "Mascotas";
+            this.tab_Mascotas.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel_Mascotas
             // 
-            flowLayoutPanel_Mascotas.AutoScroll = true;
-            flowLayoutPanel_Mascotas.Dock = DockStyle.Fill;
-            flowLayoutPanel_Mascotas.Location = new Point(3, 3);
-            flowLayoutPanel_Mascotas.Name = "flowLayoutPanel_Mascotas";
-            flowLayoutPanel_Mascotas.Size = new Size(845, 415);
-            flowLayoutPanel_Mascotas.TabIndex = 0;
+            this.flowLayoutPanel_Mascotas.AutoScroll = true;
+            this.flowLayoutPanel_Mascotas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel_Mascotas.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel_Mascotas.Name = "flowLayoutPanel_Mascotas";
+            this.flowLayoutPanel_Mascotas.Size = new System.Drawing.Size(845, 415);
+            this.flowLayoutPanel_Mascotas.TabIndex = 0;
             // 
             // tab_Productos
             // 
-            tab_Productos.Location = new Point(4, 24);
-            tab_Productos.Name = "tab_Productos";
-            tab_Productos.Padding = new Padding(3);
-            tab_Productos.Size = new Size(851, 421);
-            tab_Productos.TabIndex = 1;
-            tab_Productos.Text = "Productos";
-            tab_Productos.UseVisualStyleBackColor = true;
+            this.tab_Productos.Location = new System.Drawing.Point(4, 24);
+            this.tab_Productos.Name = "tab_Productos";
+            this.tab_Productos.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Productos.Size = new System.Drawing.Size(851, 421);
+            this.tab_Productos.TabIndex = 1;
+            this.tab_Productos.Text = "Productos";
+            this.tab_Productos.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(851, 421);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Merchandaising";
-            tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(851, 421);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Merchandaising";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tab_Suscripciones
             // 
-            tab_Suscripciones.Location = new Point(4, 24);
-            tab_Suscripciones.Name = "tab_Suscripciones";
-            tab_Suscripciones.Padding = new Padding(3);
-            tab_Suscripciones.Size = new Size(851, 421);
-            tab_Suscripciones.TabIndex = 3;
-            tab_Suscripciones.Text = "Suscripciones";
-            tab_Suscripciones.UseVisualStyleBackColor = true;
+            this.tab_Suscripciones.Location = new System.Drawing.Point(4, 24);
+            this.tab_Suscripciones.Name = "tab_Suscripciones";
+            this.tab_Suscripciones.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Suscripciones.Size = new System.Drawing.Size(851, 421);
+            this.tab_Suscripciones.TabIndex = 3;
+            this.tab_Suscripciones.Text = "Suscripciones";
+            this.tab_Suscripciones.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(button2);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(859, 71);
-            panel1.TabIndex = 3;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(859, 71);
+            this.panel1.TabIndex = 3;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(859, 520);
-            Controls.Add(tabControl1);
-            Controls.Add(panel1);
-            Name = "Form1";
-            Text = "OnlyZoo";
-            tabControl1.ResumeLayout(false);
-            tab_Mascotas.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(859, 520);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.panel1);
+            this.Name = "Form1";
+            this.Text = "OnlyZoo";
+            this.tabControl1.ResumeLayout(false);
+            this.tab_Mascotas.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

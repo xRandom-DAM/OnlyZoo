@@ -16,7 +16,7 @@ namespace OnlyZoo
             // see https://aka.ms/applicationconfiguration.
             //ApplicationConfiguration.Initialize();
             //Tests.Init();
-            Application.Run(new Mascotas());
+            Application.Run(new CatalogoMascotas());
 
         }
 
