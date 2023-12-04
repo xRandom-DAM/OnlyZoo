@@ -26,13 +26,7 @@ namespace OnlyZoo.DAO
                     {
                         while (reader.Read())
                         {
-                            Pet pet = new Pet((Guid)reader["Id"], )
-                            {
-                                Id = ,
-                                Name = reader["Name"].ToString(),
-                                Description = reader["Description"].ToString(),
-                                Breed = Convert.ToInt32(reader["Breed"])
-                            };
+                            Pet pet = new Pet(reader.GetGuid("Id"), reader.GetString("Name"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
                             pets.Add(pet);
                         }
                     }
@@ -54,7 +48,7 @@ namespace OnlyZoo.DAO
         {
             try
             {
-                string query = "INSERT INTO Pet (Id, Name, Description, BreedId) VALUES (@Id, @Name, @Description, @Breed)";
+                string query = "INSERT INTO Pet (Id, Name, Description, BreedId) VALUES (@Id, @Name, @Description, @Breed, @Picture)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.GetConnection()))
                 {
@@ -62,6 +56,7 @@ namespace OnlyZoo.DAO
                     cmd.Parameters.AddWithValue("@Name", obj.Name);
                     cmd.Parameters.AddWithValue("@Description", obj.Description);
                     cmd.Parameters.AddWithValue("@Breed", obj.Breed);
+                    cmd.Parameters.AddWithValue("@Picture", obj.Picture);
                     cmd.ExecuteNonQuery();
                 }
                 DBConnection.Close();
@@ -75,7 +70,7 @@ namespace OnlyZoo.DAO
             return false;
         }
 
-        public Pet selectObject(string uuid)
+        public Pet selectObject(Guid uuid)
         {
             Pet pet = null;
             try
@@ -88,13 +83,7 @@ namespace OnlyZoo.DAO
                     {
                         if (reader.Read())
                         {
-                            pet = new Pet
-                            {
-                                Id = uuid,
-                                Name = reader["Name"].ToString(),
-                                Description = reader["Description"].ToString(),
-                                Breed = Convert.ToInt32(reader["Breed"])
-                            };
+                            pet = new Pet(uuid, reader.GetString("Name"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
                         }
                     }
                 }
@@ -114,14 +103,14 @@ namespace OnlyZoo.DAO
         {
             try
             {
-                string query = "UPDATE Pet SET Name = @Name, Description = @Description, Breed = @Breed WHERE Id = @Id";
+                string query = "UPDATE Pet SET Name = @Name, Description = @Description, Breed = @Breed, Picture = @Picture WHERE Id = @Id";
                 using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@Id", obj.Id);
                     cmd.Parameters.AddWithValue("@Name", obj.Name);
                     cmd.Parameters.AddWithValue("@Description", obj.Description);
                     cmd.Parameters.AddWithValue("@Breed", obj.Breed);
-
+                    cmd.Parameters.AddWithValue("@Picture", obj.Picture);
                     cmd.ExecuteNonQuery();
                 }
             }

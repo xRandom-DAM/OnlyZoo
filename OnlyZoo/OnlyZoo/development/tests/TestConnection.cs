@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using OnlyZoo.drivers;
+using OnlyZoo.models;
 using OnlyZoo.util;
 using System;
 using System.Collections;
@@ -21,12 +22,11 @@ namespace OnlyZoo.development.tests
             arrayList.Add("DROP TABLE IF EXISTS USER");
             arrayList.Add("CREATE TABLE USER (EMAIL VARCHAR(30) PRIMARY KEY, USERNAME VARCHAR(15) NOT NULL, PASSWORD_HASH VARCHAR(64) NOT NULL)");
             arrayList.Add("DROP TABLE IF EXISTS Tag");
-            arrayList.Add("CREATE TABLE IF NOT EXISTS Tag ( id INT PRIMARY KEY  NOT NULL, name VARCHAR(50) NOT NULL,tipo VARCHAR(50))");
+            arrayList.Add("CREATE TABLE IF NOT EXISTS Tag ( Id CHAR(36) PRIMARY KEY  NOT NULL, Name VARCHAR(50) NOT NULL, Breed VARCHAR(50))");
             arrayList.Add("DROP TABLE IF EXISTS Breed");
-            arrayList.Add("CREATE TABLE IF NOT EXISTS Breed  ( id INT PRIMARY KEY  NOT NULL, kind VARCHAR (50) NOT NULL, species VARCHAR (50) NOT NULL )");
+            arrayList.Add("CREATE TABLE IF NOT EXISTS Breed ( Id CHAR(36) PRIMARY KEY  NOT NULL, Kind VARCHAR (50) NOT NULL, Species VARCHAR (50) NOT NULL )");
             arrayList.Add("DROP TABLE IF EXISTS Pet");
-            arrayList.Add("CREATE TABLE IF NOT EXISTS Pet ( id INT PRIMARY KEY , name VARCHAR(50), birth_date  DATE, breed INTEGER REFERENCES Breed (id), description VARCHAR (250))");
-
+            arrayList.Add("CREATE TABLE IF NOT EXISTS Pet ( Id CHAR(36) PRIMARY KEY , Name VARCHAR(50), Birth DATE, breed INTEGER REFERENCES Breed (id), Description VARCHAR (250), Picture VARCHAR (250))");
             try
             {
                 foreach (string item in arrayList)

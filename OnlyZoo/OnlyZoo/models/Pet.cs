@@ -12,18 +12,22 @@ namespace OnlyZoo.models
         public string Name { get; set; }
         public string Description { get; set; }
         public Guid Breed { get; set; }
-        public Pet(Guid id, string name, string description, Guid breed) {
+        public string Picture {get; set; }
+        public Pet(Guid id, string name, string description, Guid breed, string picture)
+        {
             Id = id;
             Name = name;
             Description = description;
             Breed = breed;
+            Picture = picture;
         }
-        public Pet(string name, string description, Guid breed)
+        public Pet(string name, string description, Guid breed, string picture)
         {
             Id = Guid.NewGuid();
             Name = name;
             Description = description;
             Breed = breed;
+            Picture = picture;
         }
         public Pet() { }
     }

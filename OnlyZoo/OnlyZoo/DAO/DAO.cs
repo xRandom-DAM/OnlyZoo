@@ -9,7 +9,7 @@ namespace OnlyZoo.DAO
     public interface DAO<T> where T : class
     {
         public List<T> getAll(Object obj);
-        public T selectObject(String uuid);
+        public T selectObject(Guid uuid);
         public bool insertObject(T obj);
         public T updateObject(T obj);
     }
