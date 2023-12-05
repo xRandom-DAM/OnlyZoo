@@ -26,7 +26,14 @@ namespace OnlyZoo.DAO
                     {
                         while (reader.Read())
                         {
-                            Pet pet = new Pet(reader.GetGuid("Id"), reader.GetString("Name"), reader.GetDateTime("Birth"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
+                            Pet pet = new Pet(
+                                reader.GetGuid(Constants.PetIdColumnName),
+                                reader.GetString(Constants.PetNameColumnName),
+                                reader.GetDateTime(Constants.PetBirthColumnName),
+                                reader.GetString(Constants.PetDescriptionColumnName),
+                                reader.GetGuid(Constants.PetBreedColumnName),
+                                reader.GetString(Constants.PetPictureColumnName)
+                                );
                             pets.Add(pet);
                         }
                     }
@@ -84,7 +91,14 @@ namespace OnlyZoo.DAO
                     {
                         if (reader.Read())
                         {
-                            pet = new Pet(uuid, reader.GetString("Name"), reader.GetDateTime("Birth"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
+                            pet = new Pet(
+                                reader.GetGuid(Constants.PetIdColumnName),
+                                reader.GetString(Constants.PetNameColumnName),
+                                reader.GetDateTime(Constants.PetBirthColumnName),
+                                reader.GetString(Constants.PetDescriptionColumnName),
+                                reader.GetGuid(Constants.PetBreedColumnName),
+                                reader.GetString(Constants.PetPictureColumnName)
+                                );
                         }
                     }
                 }
