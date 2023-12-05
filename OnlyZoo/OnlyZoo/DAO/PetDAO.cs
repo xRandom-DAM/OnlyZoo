@@ -26,7 +26,7 @@ namespace OnlyZoo.DAO
                     {
                         while (reader.Read())
                         {
-                            Pet pet = new Pet(reader.GetGuid("Id"), reader.GetString("Name"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
+                            Pet pet = new Pet(reader.GetGuid("Id"), reader.GetString("Name"), reader.GetDateTime("Birth"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
                             pets.Add(pet);
                         }
                     }
@@ -48,12 +48,13 @@ namespace OnlyZoo.DAO
         {
             try
             {
-                string query = "INSERT INTO Pet (Id, Name, Description, BreedId) VALUES (@Id, @Name, @Description, @Breed, @Picture)";
+                string query = "INSERT INTO Pet (Id, Name, Birth, Description, BreedId) VALUES (@Id, @Name, @Birth, @Description, @Breed, @Picture)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@Id", obj.Id);
                     cmd.Parameters.AddWithValue("@Name", obj.Name);
+                    cmd.Parameters.AddWithValue("@Birth", obj.Birth.ToString());
                     cmd.Parameters.AddWithValue("@Description", obj.Description);
                     cmd.Parameters.AddWithValue("@Breed", obj.Breed);
                     cmd.Parameters.AddWithValue("@Picture", obj.Picture);

@@ -20,7 +20,8 @@ namespace OnlyZoo.development.tests
             ArrayList arrayList = new ArrayList();
 
             arrayList.Add("DROP TABLE IF EXISTS USER");
-            arrayList.Add("CREATE TABLE USER (EMAIL VARCHAR(30) PRIMARY KEY, USERNAME VARCHAR(15) NOT NULL, PASSWORD_HASH VARCHAR(64) NOT NULL)");
+            arrayList.Add("DROP TABLE IF EXISTS User");
+            arrayList.Add("CREATE TABLE User (EMAIL VARCHAR(30) PRIMARY KEY, USERNAME VARCHAR(15) NOT NULL, PASSWORD_HASH VARCHAR(64) NOT NULL)");
             arrayList.Add("DROP TABLE IF EXISTS Tag");
             arrayList.Add("CREATE TABLE IF NOT EXISTS Tag ( Id CHAR(36) PRIMARY KEY  NOT NULL, Name VARCHAR(50) NOT NULL, Breed VARCHAR(50))");
             arrayList.Add("DROP TABLE IF EXISTS Breed");
@@ -67,13 +68,9 @@ namespace OnlyZoo.development.tests
             }
         }
 
-
-
-
-
         public static bool Insert()
         {
-            string query = "INSERT INTO USER VALUES (@email, @username, @password)";
+            string query = "INSERT INTO User VALUES (@email, @username, @password)";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
@@ -105,7 +102,7 @@ namespace OnlyZoo.development.tests
 
         public static bool Select()
         {
-            string query = "SELECT * FROM USER";
+            string query = "SELECT * FROM User";
             try
             {
                 using (MySqlConnection connection = DBConnection.GetConnection())
