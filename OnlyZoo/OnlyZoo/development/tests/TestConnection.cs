@@ -28,6 +28,7 @@ namespace OnlyZoo.development.tests
             arrayList.Add("CREATE TABLE IF NOT EXISTS Breed ( Id CHAR(36) PRIMARY KEY  NOT NULL, Kind VARCHAR (50) NOT NULL, Species VARCHAR (50) NOT NULL )");
             arrayList.Add("DROP TABLE IF EXISTS Pet");
             arrayList.Add("CREATE TABLE IF NOT EXISTS Pet ( Id CHAR(36) PRIMARY KEY , Name VARCHAR(50), Birth DATE, breed INTEGER REFERENCES Breed (id), Description VARCHAR (250), Picture VARCHAR (250))");
+
             try
             {
                 foreach (string item in arrayList)

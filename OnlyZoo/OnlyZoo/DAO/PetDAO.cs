@@ -13,7 +13,7 @@ namespace OnlyZoo.DAO
 {
     public class PetDAO : DAO<Pet>
     {
-        public List<Pet> getAll(object obj)
+        public List<Pet> GetAll(object obj)
         {
             List<Pet> pets = new List<Pet>();
             try
@@ -44,7 +44,7 @@ namespace OnlyZoo.DAO
             return pets;
         }
 
-        public bool insertObject(Pet obj)
+        public bool InsertObject(Pet obj)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace OnlyZoo.DAO
             return false;
         }
 
-        public Pet selectObject(Guid uuid)
+        public Pet SelectObject(Guid uuid)
         {
             Pet pet = null;
             try
@@ -84,7 +84,7 @@ namespace OnlyZoo.DAO
                     {
                         if (reader.Read())
                         {
-                            pet = new Pet(uuid, reader.GetString("Name"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
+                            pet = new Pet(uuid, reader.GetString("Name"), reader.GetDateTime("Birth"), reader.GetString("Description"), reader.GetGuid("Bread"), reader.GetString("Picture"));
                         }
                     }
                 }
@@ -100,7 +100,7 @@ namespace OnlyZoo.DAO
             return pet;
         }
 
-        public Pet updateObject(Pet obj)
+        public Pet UpdateObject(Pet obj)
         {
             try
             {
