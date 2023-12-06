@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlyZoo.util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace OnlyZoo.DAO
 {
     public interface DAO<T> where T : class
     {
-        public List<T> GetAll(Object obj);
+        public List<T> GetAll();
         public T SelectObject(Guid uuid);
         public bool InsertObject(T obj);
         public T UpdateObject(T obj);

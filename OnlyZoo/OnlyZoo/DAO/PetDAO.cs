@@ -8,12 +8,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OnlyZoo.DAO;
 
 namespace OnlyZoo.DAO
 {
     public class PetDAO : DAO<Pet>
     {
-        public List<Pet> GetAll(object obj)
+        private static PetDAO Instance { get; set; }
+        private PetDAO() { }
+        public static PetDAO GetInstance()
+        {
+            if (Instance == null) Instance = new PetDAO();
+            return Instance;
+        }
+        public List<Pet> GetAll()
         {
             List<Pet> pets = new List<Pet>();
             try
@@ -113,7 +121,6 @@ namespace OnlyZoo.DAO
             }
             return pet;
         }
-
         public Pet UpdateObject(Pet obj)
         {
             try

@@ -28,5 +28,9 @@ namespace OnlyZoo.util
         public const string PetBreedColumnName = "Breed";
         public const string PetPictureColumnName = "Picture";
 
+        public const string BreedTableName = "Breed";
+        public const string BreedIdColumnName = "Id";
+        public const string BreedKindColumnName = "Kins";
+        public const string BreedSpeciesColumnName = "Species";
     }
 }
