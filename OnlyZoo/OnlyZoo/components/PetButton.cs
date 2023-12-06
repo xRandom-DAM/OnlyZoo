@@ -9,14 +9,15 @@ namespace OnlyZoo.components
 {
     internal class PetButton : Button
     {
+        Pet Mascota { get; set; }
         public PetButton(Pet pet) 
         {
+            Mascota = pet;
             string nombreBtn = "Id_" + pet.Id;
             Text = pet.Name;
             Name = nombreBtn;
             TextAlign = ContentAlignment.BottomCenter;
-            
-            Click += new System.EventHandler(this.MostrarPet);
+            Click += this.MostrarPet;
         }
 
         /// <summary>
@@ -25,14 +26,9 @@ namespace OnlyZoo.components
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MostrarPet(object sender, EventArgs e)
+        public void MostrarPet(object sender, EventArgs e)
         {
-            if (sender is Button button)
-            {
-                string pet_ID = button.Name; //Example --> "Id_12"
-                MessageBox.Show("Muestra Contenido sobre la mascota elegida: " + pet_ID);
-
-            }
+            new InfoMascota(Mascota);
         }
     }
 
